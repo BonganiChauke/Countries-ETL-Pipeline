@@ -95,3 +95,8 @@ log_progress('Data loaded to Database as table.')
 # running the sql query to select columns
 query_statement = f"SELECT * from {table_name} WHERE GDP_USD_billions >= 100"
 run_query(query_statement, sql_connection)
+
+# logging that ETL process is complete
+log_progress('Process Complete.')
+# closing sql connection
+sql_connection.close()
