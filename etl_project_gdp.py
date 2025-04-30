@@ -78,5 +78,13 @@ log_progress('Data extraction complete. Initiating Transformation process.')
 df = transform(df) 
 
 # once transformation method complete log the loading method to csv
-log_progress('Data transformation complete. Initiating loading process')
+log_progress('Data transformation complete. Initiating loading process.')
 load_to_csv(df, csv_path)       
+
+# logging in progress on saving to csv file
+log_progress('Data saved to CSV file')
+# initiating sql connection
+sql_connection = sqlite3.connect('World_Economies.db')
+
+# logging into connected to the database
+log_progress('SQL Connection initiated.')
