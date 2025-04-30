@@ -58,4 +58,13 @@ def load_to_db(df, sql_connection, table_name):
 def run_query(query_statement, sql_connection):
     print(query_statement)
     query_output = pd.read_sql(query_statement, sql_connection)
-    print(query_output)     
+    print(query_output) 
+
+
+# function to 
+def log_progress(message): 
+    timestamp_format = '%Y-%h-%d-%H:%M:%S' # Year-Monthname-Day-Hour-Minute-Second 
+    now = datetime.now() # get current timestamp 
+    timestamp = now.strftime(timestamp_format) 
+    with open("./etl_project_log.txt","a") as f: 
+        f.write(timestamp + ' : ' + message + '\n')        
