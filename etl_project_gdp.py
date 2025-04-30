@@ -61,10 +61,22 @@ def run_query(query_statement, sql_connection):
     print(query_output) 
 
 
-# function to 
+# function to log progress of each function 
 def log_progress(message): 
     timestamp_format = '%Y-%h-%d-%H:%M:%S' # Year-Monthname-Day-Hour-Minute-Second 
     now = datetime.now() # get current timestamp 
     timestamp = now.strftime(timestamp_format) 
     with open("./etl_project_log.txt","a") as f: 
-        f.write(timestamp + ' : ' + message + '\n')        
+        f.write(timestamp + ' : ' + message + '\n')
+
+# logging the extract function entry
+log_progress('Initiating ETL process.')
+df = extract(url, table_attribs)
+
+# once extraction method complete log the transformation process
+log_progress('Data extraction complete. Initiating Transformation process.')
+df = transform(df) 
+
+# once transformation method complete log the loading method to csv
+log_progress('Data transformation complete. Initiating loading process')
+load_to_csv(df, csv_path)       
