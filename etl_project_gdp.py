@@ -88,3 +88,6 @@ sql_connection = sqlite3.connect('World_Economies.db')
 
 # logging into connected to the database
 log_progress('SQL Connection initiated.')
+
+# logging that a table has created on the database
+log_progress('Data loaded to Database as table.')
