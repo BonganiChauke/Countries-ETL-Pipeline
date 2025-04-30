@@ -52,4 +52,10 @@ def load_to_csv(df, csv_path):
     
 # loading data frame into sql database 
 def load_to_db(df, sql_connection, table_name):
-    df.to_sql(table_name, sql_connection, if_exists='replace', index=False)   
+    df.to_sql(table_name, sql_connection, if_exists='replace', index=False)  
+
+# function to query and print from the database
+def run_query(query_statement, sql_connection):
+    print(query_statement)
+    query_output = pd.read_sql(query_statement, sql_connection)
+    print(query_output)     
