@@ -45,3 +45,7 @@ def transform(df):
     df["GDP_USD_millions"] = GDP_list
     df=df.rename(columns = {"GDP_USD_millions":"GDP_USD_billions"})
     return df
+
+# loading data frame into a csv file
+def load_to_csv(df, csv_path):
+    df.to_csv(csv_path)
