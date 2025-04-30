@@ -91,3 +91,7 @@ log_progress('SQL Connection initiated.')
 
 # logging that a table has created on the database
 log_progress('Data loaded to Database as table.')
+
+# running the sql query to select columns
+query_statement = f"SELECT * from {table_name} WHERE GDP_USD_billions >= 100"
+run_query(query_statement, sql_connection)
