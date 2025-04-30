@@ -57,7 +57,7 @@ def load_to_db(df, sql_connection, table_name):
 # function to query and print from the database
 def run_query(query_statement, sql_connection):
     print(query_statement)
-    query_output = pd.read_sql(query_statement, sql_connection)
+    query_output = pd.read_sql_query(query_statement, sql_connection)
     print(query_output) 
 
 
@@ -90,6 +90,7 @@ sql_connection = sqlite3.connect('World_Economies.db')
 log_progress('SQL Connection initiated.')
 
 # logging that a table has created on the database
+load_to_db(df,sql_connection,table_name)
 log_progress('Data loaded to Database as table.')
 
 # running the sql query to select columns
