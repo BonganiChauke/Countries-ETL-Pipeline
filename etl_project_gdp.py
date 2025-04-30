@@ -49,3 +49,7 @@ def transform(df):
 # loading data frame into a csv file
 def load_to_csv(df, csv_path):
     df.to_csv(csv_path)
+    
+# loading data frame into sql database 
+def load_to_db(df, sql_connection, table_name):
+    df.to_sql(table_name, sql_connection, if_exists='replace', index=False)   
